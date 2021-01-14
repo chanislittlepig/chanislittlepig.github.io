@@ -81,15 +81,15 @@
 		<nav class="header-smart-menu">
 			
 				
-					<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+					<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)" rel="external nofollow noreferrer">所有文章</a>
 				
 			
 				
-					<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+					<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)" rel="external nofollow noreferrer">友链</a>
 				
 			
 				
-					<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+					<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)" rel="external nofollow noreferrer">关于我</a>
 				
 			
 		</nav>
@@ -115,11 +115,6 @@
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
-      
-      <a class="forkMe" style="position:absolute;z-index:999;top:0;right:0.5em;" 
-        href="https://github.com/JoeyBling/hexo-theme-yilia-plus" target="_blank">
-        <img src="/img/forkme.png"
-          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
       
       
 <nav id="mobile-nav">
@@ -220,8 +215,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <p>[toc]</p>
-<h4 id="1-安装nodejs"><a href="#1-安装nodejs" class="headerlink" title="1. 安装nodejs"></a>1. 安装nodejs</h4><h4 id="2-安装git"><a href="#2-安装git" class="headerlink" title="2. 安装git"></a>2. 安装git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git-core</span><br></pre></td></tr></table></figure>
+    <h4 id="1-安装nodejs"><a href="#1-安装nodejs" class="headerlink" title="1. 安装nodejs"></a>1. 安装nodejs</h4><h4 id="2-安装git"><a href="#2-安装git" class="headerlink" title="2. 安装git"></a>2. 安装git</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git-core</span><br></pre></td></tr></table></figure>
 <h4 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3. 安装hexo"></a>3. 安装hexo</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <p>在<code>/home/xxx/</code>下新建<code>blog</code>的文件夹</p>
 <p>依次执行以下命令</p>
@@ -242,14 +236,10 @@
 <p>如果出现报错<code>Could not open a connection to your authentication agent.</code>，则先执行</p>
 <p><code>ssh-agent bash --login -i</code></p>
 <p>然后拷贝<code>/home/xxx/id_rsa.pub</code>的内容到github的<code>Settings</code>-<code>SSH and GPG Keys</code></p>
+<p>验证是否添加成功，直到返回<code>You&#39;ve successfully authenticated</code></p>
 </li>
 </ol>
-<pre><code> 验证是否添加成功，直到返回`You&#39;ve successfully authenticated`
-
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
- 配置git的用户名和邮箱
-
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxxx&quot;</span><br><span class="line">git config --global user.email &quot;xxx@gmail.com&quot;</span><br></pre></td></tr></table></figure></code></pre>
+<pre><code> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;xxxx&quot;</span><br><span class="line">git config --global user.email &quot;xxx@gmail.com&quot;</span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></code></pre>
 <ol start="5">
 <li><p>修改hexo的配置文件，在<code>blog</code>目录下的<code>_config.yml</code>文件，在文本末尾添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:&lt;Github账号名称&gt;&#x2F;&lt;Github账号名称&gt;.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></li>
@@ -274,7 +264,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -298,7 +288,7 @@
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+            <a href="javascript:void(0)" rel="external nofollow noreferrer" class="mod-side-operation__jump-to-top">
                 <i class="icon-font icon-back"></i>
             </a>
             <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
@@ -411,15 +401,15 @@
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" rel="external nofollow noreferrer" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" rel="external nofollow noreferrer" q-class="active:friends">友链</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" rel="external nofollow noreferrer" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -440,7 +430,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag color5">hexo</a>
               </li>
             
             <div class="clearfix"></div>
