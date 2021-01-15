@@ -6,17 +6,36 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.forchanchan.cn">
-  <title>Archives: 2021 | LittlePig&#39;s Blog</title>
+  <title>Zookeeper初识 | LittlePig&#39;s Blog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LittlePig&#39;s Blog">
-<meta property="og:url" content="https://www.forchanchan.cn/archives/2021/index.html">
+  <meta name="description" content="1.  Zookeeper是什么 分布式的分布式应用程序协调服务  解决了数据一致性的问题  文件系统 + 监控通知">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zookeeper初识">
+<meta property="og:url" content="https://www.forchanchan.cn/to-know-zookeeper.html">
 <meta property="og:site_name" content="LittlePig&#39;s Blog">
+<meta property="og:description" content="1.  Zookeeper是什么 分布式的分布式应用程序协调服务  解决了数据一致性的问题  文件系统 + 监控通知">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml52d88yrj30f70ceacc.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml5rvius9j30ki0dgmyt.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml60m458pj30fx075jt7.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml7nuzdoyj309x0lzjtp.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml7p9hr1uj30nz0z3q58.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml872v431j30ii0elq43.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml8atc7glj30ii0eln06.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml8ke0p3nj30ii0eldio.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml8mz62yzj30ii0eladk.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gmlvlaxseoj31jj0dp0yv.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gmlvlq649dj30ep08v0t4.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gmlvmeytxhj30ep09pdg4.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gmlvmqnrzkj30ca0dfq3l.jpg">
+<meta property="article:published_time" content="2021-01-15T02:00:00.000Z">
+<meta property="article:modified_time" content="2021-01-15T02:11:42.375Z">
 <meta property="article:author" content="LittlePig">
+<meta property="article:tag" content="zookeeper">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml52d88yrj30f70ceacc.jpg">
   
     <link rel="alternative" href="/atom.xml" title="LittlePig&#39;s Blog" type="application/atom+xml">
   
@@ -198,256 +217,228 @@ var _hmt = _hmt || [];
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-to-know-zookeeper" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/zookeeper-scene.html" class="archive-article-date">
-        <time datetime="2021-01-15T02:06:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/zookeeper-scene.html">Zookeeper应用场景</a>
-	
+    <h1 class="article-title" itemprop="name">
+      Zookeeper初识
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag article-tag-list-link color5">zookeeper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/zookeeper-install.html" class="archive-article-date">
-        <time datetime="2021-01-15T02:05:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
-</a>
-
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/zookeeper-install.html">Zookeeper安装</a>
-	
-    </h1>
-  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
 
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag article-tag-list-link color5">zookeeper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/zookeeper-faq.html" class="archive-article-date">
-        <time datetime="2021-01-15T02:04:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/zookeeper-faq.html">Zookeeper常见问题(FAQ)</a>
-	
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag article-tag-list-link color5">zookeeper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/zab.html" class="archive-article-date">
-        <time datetime="2021-01-15T02:03:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/zab.html">ZAB协议详解</a>
-	
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag article-tag-list-link color5">zookeeper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/zookeeper-experience.html" class="archive-article-date">
-        <time datetime="2021-01-15T02:02:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/zookeeper-experience.html">Zookeeper运维经验</a>
-	
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag article-tag-list-link color5">zookeeper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
 <a href="/to-know-zookeeper.html" class="archive-article-date">
         <time datetime="2021-01-15T02:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/to-know-zookeeper.html">Zookeeper初识</a>
-	
-    </h1>
   
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="1-Zookeeper是什么"><a href="#1-Zookeeper是什么" class="headerlink" title="1.  Zookeeper是什么"></a>1.  Zookeeper是什么</h4><ul>
+<li><p>分布式的分布式应用程序协调服务</p>
+</li>
+<li><p>解决了数据一致性的问题</p>
+</li>
+<li><p>文件系统 + 监控通知</p>
+<a id="more"></a>
 
+</li>
+</ul>
+<h4 id="2-Zookeeper数据结构"><a href="#2-Zookeeper数据结构" class="headerlink" title="2. Zookeeper数据结构"></a>2. Zookeeper数据结构</h4><p>​    基于节点的数据存储方式，也叫Znode</p>
+<p>​    Znode里面包含了以下数据</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml52d88yrj30f70ceacc.jpg" alt="57187BB2-EE34-4900-8609-F9CA016D09B3">    </p>
+<p> data: Znode存储的数据信息</p>
+<p> ACL: 记录Znode的访问权限，哪些人或哪些ip可以访问这个节点</p>
+<p>child: 当前节点的子节点引用，类似于二叉树的左孩子右孩子</p>
+<p>stat：存储了Znode的各种元数据，包括版本号，子节点数，数据长度，创建时间等信息 </p>
+<p>​    （通过stat或ls2命令查询）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml5rvius9j30ki0dgmyt.jpg" alt="image-20210112195635037"></p>
+<p>cZxid: 数据节点创建时的事务ID</p>
+<p>cTime: 数据节点的创建时间</p>
+<p>mZxid: 数据节点修改时的事务ID</p>
+<p>mtime: 数据节点最后修改时间</p>
+<p>pZxid: 数据节点的子节点列表最后一次被修改（是子节点列表变更，而不是子节点内容变更）时的事务ID        </p>
+<p>cversion:  子节点的版本号</p>
+<p>dataVersion: 数据节点的版本号</p>
+<p>aclVersion: 数据节点的ACL版本号</p>
+<p>ephemeralOwner: 如果是临时节点，记录的是创建该节点的会话SessionId; 如果是持久节点，存储的是0x0</p>
+<p>dataLength: 存储的数据长度，最大不能超过1M</p>
+<p>numChildren: 子节点的数量</p>
+<p>Znode的类型分为四种：</p>
+<ul>
+<li><p>PERSISTENT-持久化节点 </p>
+<p>客户端与zookeeper断开连接后，该节点依旧存在 </p>
+</li>
+<li><p>PERSISTENT_SEQUENTIAL-持久化顺序编号目录节点 </p>
+<p>客户端与zookeeper断开连接后，该节点依旧存在，只是Zookeeper给该节点名称进行顺序编号 </p>
+</li>
+<li><p>EPHEMERAL-临时目录节点 </p>
+<p>客户端与zookeeper断开连接后，该节点被删除 </p>
+</li>
+<li><p>EPHEMERAL_SEQUENTIAL-临时顺序编号目录节点 </p>
+<p>客户端与zookeeper断开连接后，该节点被删除，只是Zookeeper给该节点名称进行顺序编号 </p>
+</li>
+</ul>
+<h4 id="3-Zookeeper的角色"><a href="#3-Zookeeper的角色" class="headerlink" title="3. Zookeeper的角色"></a>3. Zookeeper的角色</h4><p>​    <img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml60m458pj30fx075jt7.jpg" alt="39CB74BF-6635-445A-97A0-C4305F6F6D7B"></p>
+<h4 id="4-Zookeeper的工作原理"><a href="#4-Zookeeper的工作原理" class="headerlink" title="4. Zookeeper的工作原理"></a>4. Zookeeper的工作原理</h4><p>​    Zookeeper的核心是ZAB协议（Zookeeper Atomic Broadcast，Zookeeper原子消息广播协议），该协议是其数据一致性的核心算法，是一个专门为Zookeeper设计的支持崩溃恢复的数据广播协议</p>
+<p>​    Zab协议有两种模式，<strong>数据广播模式（同步）和崩溃恢复模式（选主）</strong></p>
+<p>​    当服务器启动或者leader崩溃重启的时候就会进入恢复模式，通过选举算法选出新的leader，当新的leader选举出来，且超过半数的server完成和leader的状态同步后，恢复模式就结束了</p>
+<p>​    为了保证事务的顺序一致性，zookeeper采用了递增的事务id号（zxid）来标识事务。所有的提议（proposal）都在被提出的时候加上了zxid。实现中zxid是一个64位的数字，它高32位是epoch用来标识leader关系是否改变，每次一个leader被选出来，它都会有一个新的epoch，标识当前属于那个leader的统治时期。低32位用于递增计数。</p>
+<ul>
+<li>数据广播模式<ol>
+<li>客户端发起一个事务请求（写操作）</li>
+<li>如果请求的是Follower，则会转发给Leader进行处理，Leader把该请求转化为事务（proposal）提案，并分配一个全局唯一的有序性Zxid</li>
+<li>Leader与每个Follower之间都有一个队列，Leader把事务放入队列</li>
+<li>Follwer从队列取出消息处理完后（写入本地事务日志），向Leader服务器发送Ack确认</li>
+<li>Leader收到半数以上的ACK确认后，认为可以发送Commit</li>
+<li>leader向所有的服务器发送Commit消息</li>
+</ol>
+</li>
+</ul>
+<p>​        只要有一台服务器提交了proposal，就要确保所有的服务器最终都能正确提交proposal。</p>
+<p>​        Zookeeper的数据同步方式和二阶段提交方式有所相同但又不同，二阶段提交方式要求所有的参与者都发送ACK信息后，才能发送Commit消息，要么全部成功，要么全部失败，会产生严重的堵塞问题。</p>
+<p>​        为了进一步防止阻塞，leader服务器与每个follower之间都有一个单独的队列进行收发消息，使用队列消息可以做到异步解耦。leader和follower之间只要往队列中发送了消息即可。如果使用同步方式容易引起阻塞。性能上要下降很多。</p>
+<p>​        </p>
+<ul>
+<li><p>崩溃恢复模式</p>
+<p>当leader崩溃重启或者失去了半数以上的follower的时候，zookeeper会进入恢复模式，通过选举算法选出新的leader，选举算法分为两种：一种是基于basic paxos实现，另外一种是基于fast paxos实现的，系统默认算法为fast paxos算法。</p>
+</li>
+</ul>
+<p>  ZAB协议崩溃恢复要求满足如下2个要求：</p>
+<ul>
+<li><p>确保已经被leader提交的proposal必须最终被所有的follower服务器提交。</p>
+</li>
+<li><p>确保丢弃已经被leader提出的但是没有被提交的proposal。</p>
+<p>新选举出来的leader不能包含未提交的proposal，即新选举的leader必须都是已经提交了的proposal的follower服务器节点。同时，新选举的leader节点中含有最高的ZXID。这样做的好处就是可以避免了leader服务器检查proposal的提交和丢弃工作。</p>
+</li>
+<li><p>每个Server会发出一个投票,第一次都是投自己。投票信息：（myid，ZXID）</p>
+</li>
+<li><p>收集来自各个服务器的投票</p>
+</li>
+<li><p>处理投票并重新投票，处理逻辑：优先比较ZXID,然后比较myid</p>
+</li>
+<li><p>统计投票，只要超过半数的机器接收到同样的投票信息，就可以确定leader</p>
+</li>
+<li><p>更新服务器状态</p>
+</li>
+</ul>
+<p>  **basic paxos: **</p>
+<p>  1.选举线程由当前Server发起选举的线程担任，其主要功能是对投票结果进行统计，并选出推荐的Server； </p>
+<p>  2.选举线程首先向所有Server发起一次询问(包括自己)； </p>
+<p>  3.选举线程收到回复后，验证是否是自己发起的询问(验证zxid是否一致)，然后获取对方的id(myid)，并存储到当前询问对象列表中，最后获取对方提议的leader相关信息(id,zxid)，并将这些信息存储到当次选举的投票记录表中； </p>
+<p>  4.收到所有Server回复以后，就计算出zxid最大的那个Server，并将这个Server相关信息设置成下一次要投票的Server； </p>
+<p>  5.线程将当前zxid最大的Server设置为当前Server要推荐的Leader，如果此时获胜的Server获得n/2 + 1的Server票数，设置当前推荐的leader为获胜的Server，将根据获胜的Server相关信息设置自己的状态，否则，继续这个过程，直到leader被选举出来。 通过流程分析我们可以得出：要使Leader获得多数Server的支持，则Server总数必须是奇数2n+1，且存活的Server的数目不得少于n+1. 每个Server启动后都会重复以上流程。在恢复模式下，如果是刚从崩溃状态恢复的或者刚启动的server还会从磁盘快照中恢复数据和会话信息，zk会记录事务日志并定期进行快照，方便在恢复时进行状态恢复。</p>
+<p>  选主的具体流程图所示： </p>
+<p>  <img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml7nuzdoyj309x0lzjtp.jpg" alt="054FF42F-6F6A-4DBD-AB23-A441A51F8B85"></p>
+<p>​    <strong>fast paxos:</strong></p>
+<p>​        在选举过程中，某Server首先向所有Server提议自己要成为Leader，当其它Server收到提议以后，解决epoch和 zxid的冲突，并接受对方的提议，然后向对方发送接受提议完成的消息，重复这个流程，最后一定能选举出Leader。</p>
+<p>用文字描述就是：</p>
+<p>（1）全天下我最牛，在我没有发现比我牛的推荐人的情况下，我就一直推举我当Leader。第一次投票那必须推举我自己当Leader。</p>
+<p>（2）每当我接收到其它的被推举者，我都要回馈一个信息，表明我还是不是推举我自己。如果被推举者没我大，我就一直推举我当Leader，是我是我还是我！</p>
+<p>（3）我有一个票箱， 和我属于同一轮的投票情况都在这个票箱里面。一人一票 重复的或者过期的票，我都不接受。</p>
+<p>（4）一旦我不再推举我自己了（这时我发现别人推举的人比我推荐的更牛），我就把我的票箱清空，重新发起一轮投票（这时我的票箱一定有两票了，都是选的我认为最牛的人）。</p>
+<p>（5）一旦我发现收到的推举信息中投票轮要高于我的投票轮，我也要清空我的票箱。并且还是投当初我觉得最牛的那个人（除非当前的人比我最初的推荐牛，我就顺带更新我的推荐）。</p>
+<p>（6）不断的重复上面的过程，不断的告诉别人“我的投票是第几轮”、“我推举的人是谁”。直到我的票箱中“我推举的最牛的人”收到了不少于 N /2 + 1的推举投票。</p>
+<p>（7）这时我就可以决定我是flower还是Leader了（如果至始至终都是我最牛，那我就是Leader咯，其它情况就是Follower咯）。并且不论随后收到谁的投票，都向它直接反馈“我的结果”。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml7p9hr1uj30nz0z3q58.jpg" alt="8775426-dc8941fb29c7a7f6"></p>
+<p><strong>选举场景：</strong></p>
+<p>1、集群启动的时候发起leader选举</p>
+<p>​        <img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml872v431j30ii0elq43.jpg"></p>
+<p>  集群刚启动的时候，都把投票投给自己，（1,1）的第一位数代表被推荐的服务器的myid, 第二位数代表被推荐的服务器的zxid， 此时Server1的票箱为（1,1），Server2的票箱为（2, 1），Server3的票箱为（3, 1）</p>
+<p>​    <img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml8atc7glj30ii0eln06.jpg" alt="20200925122501396"></p>
+<p>​        此时收集来自各个服务器的选票，server1收到了来自server2 的（2, 1）和server3的(3, 1)，在zxid相同的情况下选择myid最大的，所以server1把自己的投票更新为(3, 1)， 更新完后把投票广播出去。</p>
+<p>​    根据上述投票，三个服务器一致认为server3应该是Leader，所以server1和server2进入following状态，server3进入leading状态， 并发起维护与follower之间的心跳</p>
+<p> 2、follower崩溃重启</p>
+<p>​    follower重启后会自动进入Looking状态并发起一轮新的投票，并且把投票投给自己</p>
+<p>​    服务器3收到服务器1的投票后，将自己的状态LEADING以及选票返回给服务器1。服务器2收到服务器1的投票后，将自己的状态FOLLOWING及选票返回给服务器1。此时服务器1知道服务器3是Leader，并且通过服务器2与服务器3的选票可以确定服务器3确实得到了超过半数的选票。因此服务器1进入FOLLOWING状态。</p>
+<pre><code> ![20200925122524511](https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml8jexsucj30ii0el77n.jpg)</code></pre>
+<p>3、Leader崩溃重启</p>
+<p>​    Leader（服务器3）宕机后，Follower（服务器1和2）发现Leader不工作了，因此进入LOOKING状态并发起新的一轮投票，并且都将票投给自己。依据场景1的算法进行选举出新的leader</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml8ke0p3nj30ii0eldio.jpg" alt="20200925122546114"></p>
+<p>4、旧leader恢复成为follower</p>
+<p>​        跟场景2一样，旧的Leader恢复后，进入LOOKING状态并发起新一轮领导选举，并将选票投给自己。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gml8mz62yzj30ii0eladk.jpg" alt="20200925122646992"></p>
+<p>选完Leader以后，zookeeper就进入状态同步过程。 </p>
+<ol>
+<li><p>Leader等待server连接； </p>
+<p>2 .Follower连接leader，将最大的zxid发送给leader； </p>
+<p>3 .Leader根据follower的zxid确定同步点； </p>
+<p>4 .完成同步后通知follower 已经成为uptodate状态； </p>
+<p>5 .Follower收到uptodate消息后，又可以重新接受client的请求进行服务了。</p>
+</li>
+</ol>
+<h4 id="5-Zookeeper常用场景"><a href="#5-Zookeeper常用场景" class="headerlink" title="5. Zookeeper常用场景"></a>5. Zookeeper常用场景</h4><ul>
+<li><p>命名服务</p>
+<p>根据指定名字来获取资源或服务的地址，提供者等信息，利用其znode的特点和watcher机制，将其作为动态注册和获取服务信息的配置中心，统一管理服务名称和其对应的服务器列表信息，我们能够近乎实时地感知到后端服务器的状态(上线、下线、宕机)。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gmlvlaxseoj31jj0dp0yv.jpg" alt="流程图"></p>
+</li>
+<li><p>配置管理</p>
+<p>程序总是需要配置的，如果程序分散部署在多台机器上，要逐个改变配置就变得困难。现在把这些配置全部放到zookeeper上去，保存在 Zookeeper 的某个目录节点中，然后所有相关应用程序对这个目录节点进行监听，一旦配置信息发生变化，每个应用程序就会收到 Zookeeper 的通知，然后从 Zookeeper 获取新的配置信息应用到系统中就好。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gmlvlq649dj30ep08v0t4.jpg" alt="A3420D84-1718-4209-9AB9-98C88AF5AA1F"></p>
+</li>
+<li><p>集群管理</p>
+<p>所谓集群管理无在乎两点：是否有机器退出和加入、选举master。 </p>
+<p>对于第一点，所有机器约定在父目录GroupMembers下创建临时目录节点，然后监听父目录节点的子节点变化消息。一旦有机器挂掉，该机器与 zookeeper的连接断开，其所创建的临时目录节点被删除，所有其他机器都收到通知：某个兄弟目录被删除，于是，所有人都知道：它上船了。</p>
+<p>新机器加入也是类似，所有机器收到通知：新兄弟目录加入，highcount又有了，对于第二点，我们稍微改变一下，所有机器创建临时顺序编号目录节点，每次选取编号最小的机器作为master就好。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gmlvmeytxhj30ep09pdg4.jpg" alt="8E7C83EB-B541-465A-86B7-EF0B31B0605A"></p>
+</li>
+<li><p>分布式锁</p>
+<p>锁服务可以分为两类，一个是保持独占，另一个是控制时序。 </p>
+<p>对于第一类，我们将zookeeper上的一个znode看作是一把锁，通过createznode的方式来实现。所有客户端都去创建 /distribute_lock 节点，最终成功创建的那个客户端也即拥有了这把锁。用完删除掉自己创建的distribute_lock 节点就释放出锁。 </p>
+<p>对于第二类， /distribute_lock 已经预先存在，所有客户端在它下面创建临时顺序编号目录节点，和选master一样，编号最小的获得锁，用完删除，依次方便。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/chanislittlepig/chanislittlepig.github.io@images/img/008eGmZEgy1gmlvmqnrzkj30ca0dfq3l.jpg" alt="EB1D6E99-EEEF-42FE-BC3D-8467883A19DD"></p>
+</li>
+<li><p>队列管理</p>
+<p>两种类型的队列：</p>
+<p>1、同步队列，当一个队列的成员都聚齐时，这个队列才可用，否则一直等待所有成员到达。 </p>
+<p>2、队列按照 FIFO 方式进行入队和出队操作。 </p>
+<p>第一类，在约定目录下创建临时目录节点，监听节点数目是否是我们要求的数目。 </p>
+<p>第二类，和分布式锁服务中的控制时序场景基本原理一致，入列有编号，出列按编号。</p>
+</li>
+</ul>
 
-        <div class="article-info info-on-right">
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          LittlePig
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://www.forchanchan.cn/to-know-zookeeper.html" title="Zookeeper初识" target="_blank">https://www.forchanchan.cn/to-know-zookeeper.html</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -459,62 +450,129 @@ var _hmt = _hmt || [];
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" rel="external nofollow noreferrer" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" rel="external nofollow noreferrer" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" rel="external nofollow noreferrer" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" rel="external nofollow noreferrer"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://www.forchanchan.cn/to-know-zookeeper.html" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/hexo-begin.html" class="archive-article-date">
-        <time datetime="2021-01-13T06:00:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-13</time>
-</a>
 
+
+<nav id="article-nav">
+  
+    <a href="/zookeeper-experience.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Zookeeper运维经验
+        
+      </div>
+    </a>
+  
+  
+    <a href="/hexo-begin.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo博客搭建过程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" rel="external nofollow noreferrer" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/hexo-begin.html">Hexo博客搭建过程</a>
-	
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" rel="external nofollow noreferrer" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Zookeeper%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">1.  Zookeeper是什么</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-Zookeeper%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">2. Zookeeper数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Zookeeper%E7%9A%84%E8%A7%92%E8%89%B2"><span class="toc-number">3.</span> <span class="toc-text">3. Zookeeper的角色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Zookeeper%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">4. Zookeeper的工作原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-Zookeeper%E5%B8%B8%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">5.</span> <span class="toc-text">5. Zookeeper常用场景</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+        
+    </div>
+</aside>
 
-    
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -552,8 +610,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
