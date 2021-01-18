@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="Watch机制的底层原理​    在 ZooKeeper 中则是在客户端和服务器端分别实现两个存放观察者列表，即：ZKWatchManager 和 WatchManager。其核心操作就是围绕着这两个展开的：  客户端Watch注册实现过程 在发送一个 Watch 监控事件的会话请求时，ZooKeeper 客户端主要做了两个工作：  标记该会话是一个带有Watch事件的请求 将Watch事件存储到">
+  <meta name="description" content="Watch机制的底层原理​    在 ZooKeeper 中则是在客户端和服务器端分别实现两个存放观察者列表，即：ZKWatchManager 和 WatchManager。其核心操作就是围绕着这两个展开的：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zookeeper的Watch机制分析">
 <meta property="og:url" content="https://www.forchanchan.cn/zookeeper-watch.html">
 <meta property="og:site_name" content="LittlePig&#39;s Blog">
-<meta property="og:description" content="Watch机制的底层原理​    在 ZooKeeper 中则是在客户端和服务器端分别实现两个存放观察者列表，即：ZKWatchManager 和 WatchManager。其核心操作就是围绕着这两个展开的：  客户端Watch注册实现过程 在发送一个 Watch 监控事件的会话请求时，ZooKeeper 客户端主要做了两个工作：  标记该会话是一个带有Watch事件的请求 将Watch事件存储到">
+<meta property="og:description" content="Watch机制的底层原理​    在 ZooKeeper 中则是在客户端和服务器端分别实现两个存放观察者列表，即：ZKWatchManager 和 WatchManager。其核心操作就是围绕着这两个展开的：">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-01-18T02:11:00.000Z">
-<meta property="article:modified_time" content="2021-01-18T02:12:08.680Z">
+<meta property="article:modified_time" content="2021-01-18T02:13:36.687Z">
 <meta property="article:author" content="LittlePig">
 <meta property="article:tag" content="zookeeper">
 <meta name="twitter:card" content="summary">
@@ -249,6 +249,8 @@ var _hmt = _hmt || [];
   <div class="article-entry" itemprop="articleBody">
     
     <h4 id="Watch机制的底层原理"><a href="#Watch机制的底层原理" class="headerlink" title="Watch机制的底层原理"></a>Watch机制的底层原理</h4><p>​    <strong>在 ZooKeeper 中则是在客户端和服务器端分别实现两个存放观察者列表，即：ZKWatchManager 和 WatchManager</strong>。其核心操作就是围绕着这两个展开的：</p>
+<a id="more"></a>
+
 <ol>
 <li><p>客户端Watch注册实现过程</p>
 <p>在发送一个 Watch 监控事件的会话请求时，ZooKeeper 客户端主要做了两个工作：</p>
