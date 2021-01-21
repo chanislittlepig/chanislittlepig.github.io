@@ -1,3 +1,4 @@
+https://www.forchanchan.cn/nginx-install.html
 https://www.forchanchan.cn/zookeeper-watch.html
 https://www.forchanchan.cn/zookeeper-scene.html
 https://www.forchanchan.cn/zookeeper-install.html

@@ -6,7 +6,7 @@
   <link href="https://www.forchanchan.cn/atom.xml" rel="self"/>
   
   <link href="https://www.forchanchan.cn/"/>
-  <updated>2021-01-18T02:13:36.687Z</updated>
+  <updated>2021-01-21T08:00:26.133Z</updated>
   <id>https://www.forchanchan.cn/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>nginx学习笔记之安装篇</title>
+    <link href="https://www.forchanchan.cn/nginx-install.html"/>
+    <id>https://www.forchanchan.cn/nginx-install.html</id>
+    <published>2021-01-21T07:59:00.000Z</published>
+    <updated>2021-01-21T08:00:26.133Z</updated>
+    
+    <content type="html"><![CDATA[<p>本次安装是基于Centos6系统</p><pre><code> 1. 安装编译工具以及库文件</code></pre> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon src]# yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel</span><br></pre></td></tr></table></figure><ol start="2"><li><p>安装PCRE，让nginx支持Rewrite功能</p><a id="more"></a></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon src]# cd &#x2F;usr&#x2F;local&#x2F;src&#x2F;</span><br><span class="line">[root@bogon src]# wget http:&#x2F;&#x2F;downloads.sourceforge.net&#x2F;project&#x2F;pcre&#x2F;pcre&#x2F;8.35&#x2F;pcre-8.35.tar.gz</span><br><span class="line">[root@bogon src]# tar zxvf pcre-8.35.tar.gz</span><br><span class="line">[root@bogon src]# cd pcre-8.35</span><br><span class="line">[root@bogon pcre-8.35]# .&#x2F;configure</span><br><span class="line">[root@bogon pcre-8.35]# make &amp;&amp; make install</span><br><span class="line">[root@bogon pcre-8.35]# pcre-config --version</span><br><span class="line">8.35</span><br></pre></td></tr></table></figure><ol start="2"><li><p>从官网<code>http://nginx.org/en/download.html</code>下载安装包，尽量选择稳定版(Stable version)</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon src]# wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.18.0.tar.gz</span><br></pre></td></tr></table></figure></li><li><p>安装nginx</p></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#解压</span><br><span class="line">[root@bogon src]# tar zxvf nginx-1.18.0.tar.gz</span><br><span class="line">[root@bogon src]# cd nginx-1.18.0</span><br><span class="line">#编译安装</span><br><span class="line">[root@bogon nginx-1.18.0]# .&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;nginx --with-http_stub_status_module --with-http_ssl_module --with-pcre&#x3D;&#x2F;usr&#x2F;local&#x2F;src&#x2F;pcre-8.35</span><br><span class="line">[root@bogon nginx-1.18.0]# make</span><br><span class="line">[root@bogon nginx-1.18.0]# make install</span><br><span class="line">#启动</span><br><span class="line">[root@bogon nginx-1.18.0]# &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx  </span><br></pre></td></tr></table></figure><ol start="4"><li>配置用户及用户组</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#新增用户及用户组www</span><br><span class="line">[root@bogon conf]# &#x2F;usr&#x2F;sbin&#x2F;groupadd www </span><br><span class="line">[root@bogon conf]# &#x2F;usr&#x2F;sbin&#x2F;useradd -g www www</span><br><span class="line">#打开nginx的配置文件</span><br><span class="line">[root@bogon conf]# vi &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;conf&#x2F;nginx.conf</span><br><span class="line">#修改为</span><br><span class="line">user www www;</span><br><span class="line">worker_processes 2; #设置值和CPU核心数一致</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure><ol start="5"><li>常用命令</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s reload            # 重新载入配置文件</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s reopen            # 重启 Nginx</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s stop              # 停止 Nginx</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -s quit              # 安全优雅的停止Nginx</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;nginx&#x2F;sbin&#x2F;nginx -T              # 检查配置文件是否正确</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;本次安装是基于Centos6系统&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; 1. 安装编译工具以及库文件&lt;/code&gt;&lt;/pre&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;[root@bogon src]# yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;&lt;p&gt;安装PCRE，让nginx支持Rewrite功能&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="nginx" scheme="https://www.forchanchan.cn/tags/nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>Zookeeper的Watch机制分析</title>
